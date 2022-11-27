@@ -6,7 +6,7 @@ from django.utils.translation import gettext as _
 class Foods(models.Model):
     name  = models.CharField(_('اسم'), max_length=50)
     info  = models.CharField(_('توضیحات'),max_length=100)
-    rate  = models.IntegerField (_("امتیاز"))
+    rate  = models.IntegerField (_("امتیاز"),default=0)
     price = models.IntegerField(_('قیمت'))
     time  = models.IntegerField(_("زمان آماده شدن"))
     date  = models.DateField(_("تاریخ ثبت"),auto_now=False,auto_now_add=True)
