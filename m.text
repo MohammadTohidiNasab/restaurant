@@ -1,0 +1,16 @@
+
+
+
+<ul>
+
+    <li> {{ food }}  </li>
+
+    <li> {{ foods.price }} </li>
+
+    <li> {{ foods.info }} </li>
+
+    <li> {{ foods.rate }} </li>
+
+    <li> {{ foods.time }} </li>
+
+</ul> {% endcomment %}

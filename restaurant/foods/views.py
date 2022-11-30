@@ -9,3 +9,14 @@ def food_list(request):
               }
     
     return render (request,'foods/list.html',context)
+
+
+def food_detail(requste,id):
+    food = Foods.objects.get(id = id)
+    
+    context = {
+        'food': food
+    }
+    
+    return render(requste,'foods/detail.html',context)
+
