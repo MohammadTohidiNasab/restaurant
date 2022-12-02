@@ -8,7 +8,7 @@ def food_list(request):
         "foods" : food_list
               }
     
-    return render (request,'foods/list.html',context)
+    return render (request,'foods/index.html',context)
 
 
 def food_detail(requste,id):
