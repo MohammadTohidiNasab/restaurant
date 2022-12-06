@@ -106,10 +106,10 @@
 				<div class="col-lg-12">
 					<div class="special-menu text-center">
 						<div class="button-group filter-button-group">
-							<button class="active" data-filter="*">All</button>
-							<button data-filter=".drinks">Drinks</button>
-							<button data-filter=".lunch">Lunch</button>
-							<button data-filter=".dinner">Dinner</button>
+							<button class="active" data-filter="*">همه</button>
+							<button data-filter=".drinks">نوشیدنی</button>
+							<button data-filter=".lunch">غذای اصلی</button>
+							<button data-filter=".dinner">صبحانه</button>
 						</div>
 					</div>
 				</div>
@@ -120,18 +120,20 @@
 			<div class="row special-list">
 				{% for food in foods %}
 
-				<div class="col-lg-4 col-md-6 special-grid drinks">
-					<div class="gallery-single fix">
-						<img src="{{food.photo.url}}" class="img-fluid" alt="Image">
-						<div class="why-text">
-							<h4>{{food.name}}</h4>
-							<p>{{food.info}}</p>
-							<h5>{{food.price}}تومان</h5>
+					<a href='{% url 'foods:detail' food.id %}'>
+						<div class="col-lg-4 col-md-6 special-grid  {{food.type_food}}">
+							<div class="gallery-single fix">
+								<img src="{{food.photo.url}}" class="img-fluid" alt="Image">
+								<div class="why-text">
+									<h4>{{food.type_food}}</h4>
+									<p>{{food.info}}</p>
+									<h5>{{food.price}}تومان</h5>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-4 col-md-6 special-grid drinks">
+						
+						<div class="col-lg-4 col-md-6 special-grid drinks">	
+					</a>
 
 				{% endfor %}
 
