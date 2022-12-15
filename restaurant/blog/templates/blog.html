@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
-	{% block content %}
+
+
+{% block content %}
+
+
+
 	
 	<!-- Start All Pages -->
 	<div class="all-page-title page-breadcrumb">
@@ -27,168 +33,32 @@
 				</div>
 			</div>
 			<div class="row">
+
+				{% for blog in blogs %}
+				
 				<div class="col-lg-4 col-md-6 col-12">
 					<div class="blog-box-inner">
 						<div class="blog-img-box">
-							<img class="img-fluid" src="images/blog-img-01.jpg" alt="">
+							<img class="img-fluid" src="{{blog.image.url}}"  alt="">
 						</div>
 						<div class="blog-detail">
-							<h4>Duis feugiat neque sed dolor cursus.</h4>
+							<h4>{{blog.title}}</h4>
 							<ul>
-								<li><span>Post by Admin</span></li>
+								<li><span>{{blog.auther}}</span></li>
 								<li>|</li>
-								<li><span>27 February 2018</span></li>
+								<li><span>{{blog.created_at}}</span></li>
 							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-							<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. </p>
-							<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>
+							
+							<p >{{blog.description}} </p>
+							<P > {{blog.content|truncatewords:55}} </P>
+							<a class="btn btn-lg btn-circle btn-outline-new-white" href= "{% url 'blog:blog_detail' blog.id %}">Read More</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="blog-box-inner">
-						<div class="blog-img-box">
-							<img class="img-fluid" src="images/blog-img-02.jpg" alt="">
-						</div>
-						<div class="blog-detail">
-							<h4>Duis feugiat neque sed dolor cursus.</h4>
-							<ul>
-								<li><span>Post by Admin</span></li>
-								<li>|</li>
-								<li><span>27 February 2018</span></li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-							<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. </p>
-							<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="blog-box-inner">
-						<div class="blog-img-box">
-							<img class="img-fluid" src="images/blog-img-03.jpg" alt="">
-						</div>
-						<div class="blog-detail">
-							<h4>Duis feugiat neque sed dolor cursus.</h4>
-							<ul>
-								<li><span>Post by Admin</span></li>
-								<li>|</li>
-								<li><span>27 February 2018</span></li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-							<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. </p>
-							<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="blog-box-inner">
-						<div class="blog-img-box">
-							<img class="img-fluid" src="images/blog-img-04.jpg" alt="">
-						</div>
-						<div class="blog-detail">
-							<h4>Duis feugiat neque sed dolor cursus.</h4>
-							<ul>
-								<li><span>Post by Admin</span></li>
-								<li>|</li>
-								<li><span>27 February 2018</span></li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-							<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. </p>
-							<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="blog-box-inner">
-						<div class="blog-img-box">
-							<img class="img-fluid" src="images/blog-img-05.jpg" alt="">
-						</div>
-						<div class="blog-detail">
-							<h4>Duis feugiat neque sed dolor cursus.</h4>
-							<ul>
-								<li><span>Post by Admin</span></li>
-								<li>|</li>
-								<li><span>27 February 2018</span></li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-							<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. </p>
-							<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="blog-box-inner">
-						<div class="blog-img-box">
-							<img class="img-fluid" src="images/blog-img-06.jpg" alt="">
-						</div>
-						<div class="blog-detail">
-							<h4>Duis feugiat neque sed dolor cursus.</h4>
-							<ul>
-								<li><span>Post by Admin</span></li>
-								<li>|</li>
-								<li><span>27 February 2018</span></li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-							<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. </p>
-							<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="blog-box-inner">
-						<div class="blog-img-box">
-							<img class="img-fluid" src="images/blog-img-07.jpg" alt="">
-						</div>
-						<div class="blog-detail">
-							<h4>Duis feugiat neque sed dolor cursus.</h4>
-							<ul>
-								<li><span>Post by Admin</span></li>
-								<li>|</li>
-								<li><span>27 February 2018</span></li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-							<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. </p>
-							<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="blog-box-inner">
-						<div class="blog-img-box">
-							<img class="img-fluid" src="images/blog-img-08.jpg" alt="">
-						</div>
-						<div class="blog-detail">
-							<h4>Duis feugiat neque sed dolor cursus.</h4>
-							<ul>
-								<li><span>Post by Admin</span></li>
-								<li>|</li>
-								<li><span>27 February 2018</span></li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-							<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. </p>
-							<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="blog-box-inner">
-						<div class="blog-img-box">
-							<img class="img-fluid" src="images/blog-img-09.jpg" alt="">
-						</div>
-						<div class="blog-detail">
-							<h4>Duis feugiat neque sed dolor cursus.</h4>
-							<ul>
-								<li><span>Post by Admin</span></li>
-								<li>|</li>
-								<li><span>27 February 2018</span></li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
-							<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. </p>
-							<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>
-						</div>
-					</div>
-				</div>
+
+				
+				{% endfor %}
+
 			</div>
 		</div>
 	</div>
@@ -231,11 +101,5 @@
 	<!-- End Contact info -->
 	
 
-	
-	{% endblock content %}
 
-
-
-
-	
-	
+{% endblock content %}
