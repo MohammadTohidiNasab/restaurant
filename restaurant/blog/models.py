@@ -8,7 +8,7 @@ class Blog(models.Model):
     title = models.CharField(_("عنوان"), max_length=50)
     description = models.CharField(_("توضیحات"), max_length=100)
     content = models.TextField(_("متن"))
-    created_at = models.DateTimeField(_(""), default=timezone.now)
+    created_at = models.DateTimeField(_("تاریخ ایجاد"), default=timezone.now)
     auther = models.ForeignKey(User, verbose_name=_("نویسنده"), on_delete=models.CASCADE)
     image  = models.ImageField(_("تصویر"), upload_to="blogsImg/")
     category = models.ForeignKey("Category",related_name='blog', verbose_name=_("دسته بندی"),on_delete=models.PROTECT)
