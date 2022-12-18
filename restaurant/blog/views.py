@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from . models import Blog,Tag ,Category
+from . models import Blog,Tag ,Category , Comment
+from . forms import CommentForm
 # Create your views here.
 
 def blog_page (request):
@@ -16,11 +17,23 @@ def blog_detail(request,id):
     tags = Tag.objects.all().filter(blog=blog)
     recent = Blog.objects.all().order_by('-created_at')[:6]
     category = Category.objects.all()
+    comments = Comment.objects.all().filter(blog=blog)
+    
+    if  request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            new_name = form.cleaned_data['name']
+            new_emai = form.cleaned_data['email']
+            new_mesagge = form.cleaned_data['message']
+            
+            new_comment = Comment(blog=blog,name=new_name,email=new_emai,massage=new_mesagge)
+            new_comment.save()
     context = {
         'blog':blog,
         'tags': tags,
         'recent' : recent,
         'category':category,
+        'comments' : comments,
     }
     
     return render(request,'blog_details.html',context)

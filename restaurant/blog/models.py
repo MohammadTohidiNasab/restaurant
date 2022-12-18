@@ -37,3 +37,12 @@ class Tag(models.Model):
         return self.title
     
     
+class Comment(models.Model):
+    blog = models.ForeignKey("blog", verbose_name=_("مقاله"),related_name='comments' ,on_delete=models.CASCADE)
+    name = models.CharField(_("نام کاربر"), max_length=100) 
+    email = models.EmailField(_("ادرس الکترونیکی"), max_length=254)        
+    massage = models.TextField(_("متن نظر"))
+    date = models.DateField(_("تاریخ ثبت"), auto_now=False, auto_now_add=True)
+    def __str__(self):
+       return self.email
+        
