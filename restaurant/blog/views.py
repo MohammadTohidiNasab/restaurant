@@ -2,7 +2,6 @@ from django.shortcuts import render
 from . models import Blog,Tag ,Category , Comment
 from . forms import CommentForm
 from django.core.paginator import Paginator
-
 # Create your views here.
 
 def blog_page (request):
@@ -14,8 +13,6 @@ def blog_page (request):
         'blog_list':blog_list
     }
     return render(request,'blog.html',context)
-
-
 
 
 
@@ -52,7 +49,6 @@ def blog_tag(request,tag):
         'blogs': blogs
     }
     return render(request,'blog/blog.html',context)
-
 
 
 

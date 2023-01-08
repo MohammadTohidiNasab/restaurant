@@ -3,7 +3,6 @@ from . import views
 
  
 app_name = 'blog'
-
 urlpatterns = [
     path('',views.blog_page,name='blog'),
     path("<int:id>", views.blog_detail, name="blog_detail"),
