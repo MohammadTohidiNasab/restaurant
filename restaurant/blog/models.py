@@ -15,7 +15,9 @@ class Blog(models.Model):
     tags = models.ManyToManyField("Tag",related_name='blog', verbose_name=_("تگ ها"))
     def __str__(self):
         return self.title
-    
+    class Meta:
+        verbose_name = 'وبلاگ'
+        verbose_name_plural = 'وبلاگ ها'
     
 class Category(models.Model):
     title = models.CharField(_("عنوان"), max_length=50)
@@ -25,6 +27,9 @@ class Category(models.Model):
     def __str__(self):
         return self.title
     
+    class Meta:
+        verbose_name = 'دسته بندی'
+        verbose_name_plural = 'دسته بندی ها'
     
     
     
@@ -36,6 +41,10 @@ class Tag(models.Model):
     def __str__(self):
         return self.title
     
+    class Meta:
+        verbose_name = ' تگ'
+        verbose_name_plural = ' تگ ها '
+    
     
 class Comment(models.Model):
     blog = models.ForeignKey("blog", verbose_name=_("مقاله"),related_name='comments' ,on_delete=models.CASCADE)
@@ -46,3 +55,7 @@ class Comment(models.Model):
     def __str__(self):
        return self.email
         
+            
+    class Meta:
+        verbose_name = ' نظر '
+        verbose_name_plural = ' نظرات '

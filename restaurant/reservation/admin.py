@@ -3,4 +3,13 @@ from . models import Reservation
 
 # Register your models here.
 
-admin.site.register(Reservation)
+class ReservationAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    list_filter = ('phone',)
+    search_fields = ('date',)
+    ordering = ('time',)
+    
+admin.site.register(Reservation,ReservationAdmin)
+
+
+

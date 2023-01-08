@@ -3,4 +3,10 @@ from .models import Foods
 # Register your models here.
 
 
-admin.site.register(Foods)
+class FoodsAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    list_filter = ('rate',)
+    search_fields = ('price',)
+    ordering = ('time',)
+    
+admin.site.register(Foods,FoodsAdmin)
