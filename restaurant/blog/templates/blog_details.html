@@ -138,7 +138,7 @@
 
 								{% for cate in category %}
 								
-								<li><a href="#"><span>{{cate.title}}</span></a></li>
+								<li><a href="{% url 'blog:category' cate.slug %}"><span>{{cate.title}}</span></a></li>
 
 								
 								{% endfor %}
@@ -177,7 +177,7 @@
 
 								{% for tag in tags%}
 
-								<li class="list-inline-item"><a href="#">{{tag.title }}</a></li>
+								<li class="list-inline-item"><a href="{{{% url 'blog:tag' tag.slug %}}}">{{tag.title }}</a></li>
 
 								{% endfor %}
 
